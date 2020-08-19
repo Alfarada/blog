@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
 
-            $table->string('title', 128);
+            $table->string('name', 128);
             $table->string('slug', 128)->unique();
 
             $table->mediumText('excerpt')->nullable();
