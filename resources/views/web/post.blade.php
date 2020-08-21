@@ -2,8 +2,7 @@
 @section('content')
     <div class="container d-flex justify-content-center">
         <div class="col-md-8 col-md-offset-2">
-            <h1>Lista de Artículos</h1>
-            @foreach($posts as $post)
+            <h1> {{ $post->name }} </h1>
                 <div class="card mb-3">
                     @if($post->file)
                         <img src="{{$post->file}}" 
@@ -11,16 +10,21 @@
                             alt="{{ $post->name }}">
                     @endif
                     <div class="card-body">
-                        <h4 class="card-title">{{ $post->name }}</h4>
+                        <h4 class="card-title"> Categoría
+                            <a href="{{ $post->category->name }}"></a>
+                        </h4>
                         <p class="card-text">
                             {{ $post->excerpt }}
                         </p>
-                        <a href="{{ route('post', $post->slug) }}"
-                           class="d-flex justify-content-end">Leer más</a>
+                        <hr>
+                        {!! $post->body !!}
+                        <hr>
+                        Etiquetas
+                        @foreach ($post->tags as $tag)
+                            <a href="">{{ $tag->name }}</a>
+                        @endforeach
                     </div>
                 </div>
-            @endforeach
-            {{ $posts->render() }}
         </div>
     </div>
 @endsection
