@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Tag;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\tagStoreRequest;
+use App\Http\Requests\tagUpdateRequest;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -41,7 +43,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(tagStoreRequest $request)
     {
         $tag = Tag::create($request->all());
 
@@ -82,7 +84,7 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(tagUpdateRequest $request, $id)
     {
         $tag = Tag::find($id);
 
