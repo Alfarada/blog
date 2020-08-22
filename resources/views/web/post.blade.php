@@ -3,17 +3,22 @@
     <div class="container d-flex justify-content-center">
         <div class="col-md-8 col-md-offset-2">
             <h1> {{ $post->name }} </h1>
-                <div class="card mb-3">
-                    @if($post->file)
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mt-2">
+                            Categoría: 
+                            <a href="{{ route('category', $post->category->slug) }}">
+                                {{ $post->category->name }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        @if($post->file)
                         <img src="{{$post->file}}" 
                             class="img-responsive card-img-top"
                             alt="{{ $post->name }}">
-                    @endif
-                    <div class="card-body">
-                        <h4 class="card-title"> Categoría
-                            <a href="{{ $post->category->name }}"></a>
-                        </h4>
-                        <p class="card-text">
+                        @endif
+                        <p class="card-text mt-2">
                             {{ $post->excerpt }}
                         </p>
                         <hr>
@@ -21,7 +26,9 @@
                         <hr>
                         Etiquetas
                         @foreach ($post->tags as $tag)
-                            <a href="">{{ $tag->name }}</a>
+                            <a href=" {{ route('tag', $tag->slug) }} ">
+                                {{ $tag->name }}
+                            </a>
                         @endforeach
                     </div>
                 </div>
