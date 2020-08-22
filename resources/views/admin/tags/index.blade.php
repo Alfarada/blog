@@ -29,18 +29,25 @@
                                             <td>{{ $tag->name }}</td>
                                             <td with="10px">
                                                 <a  href=" {{ route('tags.show', $tag->id) }}"
-                                                    class="btn btn-sm btn-default">
+                                                    class="btn  btn-sm btn-light">
                                                     ver
                                                 </a>
                                             </td>
                                             <td with="10px">
                                                 <a  href=" {{ route('tags.show', $tag->id) }}"
-                                                    class="btn btn-sm btn-default">
+                                                    class="btn btn-sm btn-light">
                                                     editar
                                                 </a>
                                             </td>
                                             <td with="10px">
-                                                Eliminar
+                                                {!! Form::open(['route' => ['tags.destroy',$tag->id],
+                                                    'method' => 'DELETE'])!!}
+
+                                                    <button class="btn  btn-sm  btn-danger">
+                                                        eliminar
+                                                    </button>
+
+                                                {!! Form::close() !!}
                                             </td>
                                         </tr>    
                                         @endforeach
