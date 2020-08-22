@@ -34,7 +34,7 @@
                                                 </a>
                                             </td>
                                             <td with="10px">
-                                                <a  href=" {{ route('tags.show', $tag->id) }}"
+                                                <a  href=" {{ route('tags.edit', $tag->id) }}"
                                                     class="btn btn-sm btn-light">
                                                     editar
                                                 </a>
