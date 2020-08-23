@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card">
                         <div class="card-header text-center">
-                            <h5 class="card-title mb-0"> Indice de mis entradas Posts
+                            <h5 class="card-title mb-0"> Indice de mis Entradas
                                 <a  class="btn btn-primary float-right"
                                     href=" {{ route('posts.create') }}">crear</a></h5>
                         </div>
