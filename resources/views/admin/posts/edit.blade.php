@@ -10,7 +10,9 @@
                             <h5 class="card-title mb-0"> Editar mi Entrada </h5>
                         </div>
                         <div class="card-body">
-                            {!! Form::model($post,[ 'route' => ['posts.update', $post->id ],'method' => 'PUT']) !!}
+                            {!! Form::model(
+                                $post,[ 'route' => ['posts.update', $post->id ],
+                                'method' => 'PUT', 'files' => true]) !!}
 
                                 @include('admin.posts.partials.form ')
                                 
