@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Arr;
 
 class PostStoreRequest extends FormRequest
 {
@@ -23,9 +24,16 @@ class PostStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        return  [
             'name' => 'required',
-            'slug' => 'required|unique:categories,slug',
+            'slug' => 'required|unique:posts,slug',
+            'user_id' => 'required|integer',
+            'category_id' => 'required|integer',
+            'tags' => 'required|array',
+            'body' => 'required',
+            'status' => 'required|in:DRAFT,PUBLISHED',
+            'file' => 'nullable|mimes:jpg,jpeg,png'
         ];
+        
     }
 }
